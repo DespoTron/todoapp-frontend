@@ -32,7 +32,7 @@ const ListTodos = () => {
   return (
     <Fragment>
       {' '}
-      <table class="table mt-5">
+      <table className="table mt-5">
         <thead>
           <tr>
             <th>Description</th>
@@ -40,7 +40,7 @@ const ListTodos = () => {
             <th>Delete</th>
           </tr>
         </thead>
-        <tobdy>
+        <tbody>
           {/* 
           <tr>
           <td>John</td>
@@ -62,7 +62,7 @@ const ListTodos = () => {
               </td>
             </tr>
           ))}
-        </tobdy>
+        </tbody>
       </table>
     </Fragment>
   )
