@@ -12,7 +12,7 @@ const InputTodo = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(textBody),
       })
-      console.log(response)
+      window.location = '/'
     } catch (err) {
       console.error(err.message)
     }
