@@ -1,8 +1,16 @@
 # PERN STACK TODO APP
 
-# Overview
+## Overview
+
+This is a refresher course from my days at Lighthouse Labs Web Development Bootcamp. Where I wanted to build a simple full stack web application.
+
+This Todo App allows the user full CRUD (Create, Read, Update, Delete) autonomy. Users can add to their todo list, edit/update, or delete it.
 
 ## Final Product
+
+!["Main Page"](https://github.com/DespoTron/todoapp-frontend/blob/master/docs/Main.png?raw=true)
+
+!["Edit Page"](https://github.com/DespoTron/todoapp-frontend/blob/master/docs/Edit.png?raw=true)
 
 ## Getting Started
 
@@ -20,4 +28,5 @@
   <li>Express JS</li>
   <li>React JS</li>
   <li>Node JS</li>
+  <li>Bootstrap 4</li>
 </ul>
