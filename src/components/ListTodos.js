@@ -1,33 +1,68 @@
 import React, { Fragment, useState, useEffect } from 'react'
 
 const ListTodos = () => {
+  const [todos, setTodos] = useState([])
+
+  //delete todo function
+  async function deleteTodo(id) {
+    try {
+      const response = await fetch(`http://localhost:5000/todos/${id}`, {
+        method: 'DELETE',
+      })
+
+      setTodos(todos.filter((todo) => todo.todo_id !== id))
+    } catch (err) {
+      console.error(err.message)
+    }
+  }
+
+  async function getTodos() {
+    const res = await fetch('http://localhost:5000/todos')
+
+    const todosArray = await res.json()
+    setTodos(todosArray)
+  }
+
+  useEffect(() => {
+    getTodos()
+  }, [])
+
+  console.log(todos)
+
   return (
     <Fragment>
-      <table className="table">
+      {' '}
+      <table class="table mt-5">
         <thead>
           <tr>
-            <th>FirstName</th>
-            <th>LastName</th>
-            <th>Email</th>
+            <th>Description</th>
+            <th>Edit</th>
+            <th>Delete</th>
           </tr>
         </thead>
-        <tbody>
+        <tobdy>
+          {/* 
           <tr>
-            <td>John</td>
-            <td>Doe</td>
-            <td>john@example.com</td>
-          </tr>
-          <tr>
-            <td>Mary</td>
-            <td>Moe</td>
-            <td>Mary@example.com</td>
-          </tr>
-          <tr>
-            <td>July</td>
-            <td>Dooley</td>
-            <td>July@example.com</td>
-          </tr>
-        </tbody>
+          <td>John</td>
+          <td>Doe</td>
+          <td>john@example.com</td>
+          </tr>*/}
+
+          {todos.map((todo) => (
+            <tr key={todo.todo_id}>
+              <td>{todo.description}</td>
+              <td>Edit</td>
+              <td>
+                <button
+                  className="btn btn-danger"
+                  onClick={() => deleteTodo(todo.todo_id)}
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tobdy>
       </table>
     </Fragment>
   )
